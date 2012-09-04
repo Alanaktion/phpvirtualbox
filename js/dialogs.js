@@ -535,7 +535,8 @@ function vboxWizardNewHDInit(callback,suggested) {
 			var l = new vboxLoader();
 			l.add('mediumCreateBaseStorage',function(d,e){
 				if(d && d.progress) {
-					vboxProgress(d.progress,function(ret,mid) {
+					var mid = d.medid;
+					vboxProgress(d.progress,function(ret) {
 							var ml = new vboxLoader();
 							ml.add('vboxGetMedia',function(dat){$('#vboxIndex').data('vboxMedia',dat);});
 							ml.onLoad = function() {
@@ -544,9 +545,9 @@ function vboxWizardNewHDInit(callback,suggested) {
 								callback(mid);
 							};
 							ml.run();
-					},d.id,'progress_media_create_90px.png',trans('Create New Virtual Disk','UINewHDWizard'));
+					},d.medid,'progress_media_create_90px.png',trans('Create New Virtual Disk','UINewHDWizard'));
 				} else {
-					callback({},d.id);
+					callback({},null);
 				}
 			},{'file':file,'type':type,'size':size,'format':format,'split':fsplit});
 			l.run();

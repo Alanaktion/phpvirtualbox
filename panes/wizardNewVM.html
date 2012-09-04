@@ -396,6 +396,7 @@ $('#wizardNewVMStep5').bind('show',function(e,wiz){
 			// Wizard errored
 			if(!id) { return; }
 			
+			
 			vmNewFillExistingDisks(id);
 			document.forms['frmwizardNewVM'].newVMDisk[1].checked = 'checked';
 			$(document.forms['frmwizardNewVM'].newVMDisk[1]).trigger('click');

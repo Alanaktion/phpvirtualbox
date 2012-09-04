@@ -559,6 +559,10 @@ class vboxconnector {
 				return true;
 
 			} catch (Exception $e) {
+				
+				if(!empty($response['data']['progress']))
+					unset($response['data']['progress']);
+				
 				// Try to mount medium
 				$response['data']['errored'] = 1;
 			}
@@ -4245,7 +4249,6 @@ class vboxconnector {
 
 		/* @var $hd IMedium */
 		$hd = $this->vbox->createHardDisk($format,$args['file']);
-		$hdid = $hd->id;
 
 		/* @var $progress IProgress */
 		$progress = $hd->createBaseStorage(intval($args['size'])*1024*1024,$type);
@@ -4259,9 +4262,11 @@ class vboxconnector {
 			}
 		} catch (Exception $null) {}
 
+		$hdid = $hd->id;
+		
 		$this->_util_progressStore($progress,'vboxGetMedia');
 
-		$response['data'] = array('progress' => $progress->handle,'id' => $hdid);
+		$response['data'] = array('progress' => $progress->handle,'medid' => $hdid);
 		$hd->releaseRemote();
 
 		return true;
