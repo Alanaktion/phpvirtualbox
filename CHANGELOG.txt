@@ -1,4 +1,33 @@
 -------------------------------------
+	4.1-11	2012-10-03
+-------------------------------------
+Fixed error causing the new VM wizard not to automatically assign
+a new virtual hard disk.
+http://code.google.com/p/phpvirtualbox/issues/detail?id=582
+
+Changed default setting in WebAuth plugin to look for user in
+REMOTE_USER $_SERVER variable.
+
+Fixed bug in WebAuth plugin that would not allow login after
+session timeout.
+
+-------------------------------------
+	4.1-10	2012-09-08
+-------------------------------------
+Fixed JS error in some browsers causing the New Virtual Machine
+Wizard to fail.
+
+-------------------------------------
+	4.1-9	2012-09-04
+-------------------------------------
+Made Hardware Virtualization options dependencies more apparent.
+http://code.google.com/p/phpvirtualbox/issues/detail?id=574
+
+Fixed bug in New Virtual Machine Wizard that would not allow
+one to continue after creating a new hard disk.
+http://code.google.com/p/phpvirtualbox/issues/detail?id=575
+
+-------------------------------------
 	4.1-8	2012-08-20
 -------------------------------------
 Fixed bug that would error out when creating a VM without a boot
