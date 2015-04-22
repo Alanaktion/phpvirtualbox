@@ -4,7 +4,7 @@
  * defaults, and sanitizes user values.
  * 
  * @author Ian Moore (imoore76 at yahoo dot com)
- * @copyright Copyright (C) 2010-2013 Ian Moore (imoore76 at yahoo dot com)
+ * @copyright Copyright (C) 2010-2015 Ian Moore (imoore76 at yahoo dot com)
  * @version $Id$
  * @package phpVirtualBox
  * @see config.php-example
@@ -14,7 +14,7 @@
 /*
  * This version of phpVirtualBox
  */
-define('PHPVBOX_VER', '4.3-3');
+define('PHPVBOX_VER', '5.0-0');
 
 class phpVBoxConfigClass {
 
@@ -143,12 +143,11 @@ class phpVBoxConfigClass {
 	
 	/**
 	 * Read user configuration, apply defaults, and do some sanity checking
-	 * @see ajax
 	 * @see vboxconnector
 	 */
 	function __construct() {
 		
-		@include_once(dirname(dirname(__FILE__)).'/config.php');
+		@include_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 		
 		$ep = error_reporting(0);
 	

@@ -1,7 +1,7 @@
 <!--
 
 	Shared Folders
-	Copyright (C) 2010-2013 Ian Moore (imoore76 at yahoo dot com)
+	Copyright (C) 2010-2015 Ian Moore (imoore76 at yahoo dot com)
 	
 	$Id$
 	
@@ -353,7 +353,7 @@ $('#vboxSettingsDialog').on('save',function(){
 	$('#vboxSettingsSharedFoldersList').find('tr').each(function(){
 		// Skip headers and such
 		if($(this).data('name')) {
-			folders[folders.length] = {'name':$(this).data('name'),'hostPath':$(this).data('hostPath'),'autoMount':($(this).data('autoMount') ? 1 : 0),'writable':($(this).data('writable') ? 1 : 0),'type':$(this).data('type')};
+			folders[folders.length] = {'name':$(this).data('name'),'hostPath':$(this).data('hostPath'),'autoMount':($(this).data('autoMount') ? true : false),'writable':($(this).data('writable') ? true : false),'type':$(this).data('type')};
 		}
 	});
 	$('#vboxSettingsDialog').data('vboxMachineData').sharedFolders = folders;

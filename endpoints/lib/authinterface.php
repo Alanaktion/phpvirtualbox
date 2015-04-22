@@ -3,7 +3,7 @@
  * Interface for phpVirtualBox authentication modules
  *
  * @author Ian Moore (imoore76 at yahoo dot com)
- * @copyright Copyright (C) 2010-2013 Ian Moore (imoore76 at yahoo dot com)
+ * @copyright Copyright (C) 2010-2015 Ian Moore (imoore76 at yahoo dot com)
  * @version $Id$
  * @package phpVirtualBox
  * 
@@ -75,7 +75,7 @@ interface phpvbAuth {
 	/**
 	*
 	* Log out user present in $_SESSION
-	* @param array $response response passed byref by ajax.php and populated within function
+	* @param array $response response passed byref by API and populated within function
 	*/
 	function logout(&$response);
 	
@@ -89,7 +89,7 @@ interface phpvbAuth {
 	/**
 	*
 	* Update user information such as password and admin status
-	* @param array $vboxRequest request passed from ajax.php representing the ajax request. Contains user, password and administration level.
+	* @param array $vboxRequest request passed from API representing the ajax request. Contains user, password and administration level.
 	* @param boolean $skipExistCheck Do not check that the user exists first. Essentially, if this is set and the user does not exist, it is added.
 	*/
 	function updateUser($vboxRequest, $skipExistCheck);
